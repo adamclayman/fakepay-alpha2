@@ -6,4 +6,5 @@ Customer.create([{name: "Adam Clayman", handle: "adamclayman", email: "adam@clay
               
 Plan.create([{name: "Bronze Box", price: "1999", period: "Monthly"},
             {name: "Silver Box", price: "4900", period: "Monthly"},
-            {name: "Gold Box", price: "9900", period: "Monthly"}])
+            {name: "Gold Box", price: "9900", period: "Monthly"},
+            {name: "Invalid Purchase Amount", price: "So invalid", period: "Monthly"}])
