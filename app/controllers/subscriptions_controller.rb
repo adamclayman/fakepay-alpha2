@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :update, :destroy]
+  wrap_parameters :subscription, format: [:json, :xml, :url_encoded_form, :multipart_form]
 
   # GET /subscriptions
   def index
@@ -15,11 +16,14 @@ class SubscriptionsController < ApplicationController
 
   # POST /subscriptions
   def create
-    @subscription = Subscription.new(subscription_params)
+    charge_response = first_charge
+    if charge_response['error_code'] == nil
+      @subscription = Subscription.new(subscription_params)
+    end
 
-    if @subscription.save
+    if @subscription && @subscription.save
       render json: @subscription, status: :created, location: @subscription
-    else
+    elsif @subscription
       render json: @subscription.errors, status: :unprocessable_entity
     end
   end
