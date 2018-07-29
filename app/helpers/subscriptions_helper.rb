@@ -35,36 +35,33 @@ module SubscriptionsHelper
         headers: {content_type: :json, accept: :json, Authorization: authorization}).execute do |response, request, result|
             JSON.parse(response.to_s)
         end
-    puts "REST Response: #{rest_response}"
-    if rest_response['error_code'] == nil
-        payment_token = rest_response['token']
-        params['subscription'].merge!('payment_token' => payment_token)
-        
-        # Clean-up params by deleting out credit card info
-        params['subscription'].delete('card_number')
-        params['subscription'].delete('expiration_month')
-        params['subscription'].delete('expiration_year')
-        params['subscription'].delete('cvv')
-        params['subscription'].delete('zip_code')
-        return rest_response
-    else
-        case rest_response['error_code']
-            when 1000001
-                render_error_payload :invalid_card_number
-            when 1000002
-                render_error_payload :insufficient_funds
-            when 1000003
-                render_error_payload :cvv_failure
-            when 1000004
-                render_error_payload :expired_card
-            when 1000005
-                render_error_payload :invalid_zip_code
-            when 1000006
-                render_error_payload :invalid_purchase_amount
-            else
-                render_error_payload :error_code_unrecognized
-        end
-        return rest_response
+
+    # Clean-out credit card from params immediately
+    params['subscription'].delete('card_number')
+    params['subscription'].delete('expiration_month')
+    params['subscription'].delete('expiration_year')
+    params['subscription'].delete('cvv')
+    params['subscription'].delete('zip_code')
+
+    case rest_response['error_code']
+        when nil
+            payment_token = rest_response['token']
+            params['subscription'].merge!('payment_token' => payment_token)
+        when 1000001
+            render_payload :invalid_card_number
+        when 1000002
+            render_payload :insufficient_funds
+        when 1000003
+            render_payload :cvv_failure
+        when 1000004
+            render_payload :expired_card
+        when 1000005
+            render_payload :invalid_zip_code
+        when 1000006
+            render_payload :invalid_purchase_amount
+        else
+            render_payload :error_code_unrecognized
     end
+    return rest_response
   end
 end

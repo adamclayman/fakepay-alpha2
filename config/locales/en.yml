@@ -1,5 +1,9 @@
 en:
-  errors:
+  responses:
+    subscribe_successful:
+      title: "Subscribe successful."
+      detail: "Subscription was a success."
+      error_code: nil
     invalid_card_number:
       title: "Invalid card number"
       detail: "The card number is invalid"

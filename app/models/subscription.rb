@@ -9,6 +9,7 @@ class Subscription < ApplicationRecord
   validates :shipping_address, presence: true
   validates :subscribe_date, presence: true
   validates :payment_token, presence: true
+
   def save
     super
   end

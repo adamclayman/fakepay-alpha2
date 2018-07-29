@@ -1,4 +1,4 @@
-class ErrorPayload
+class RenderPayload
   attr_reader :identifier, :status
 
   def initialize(identifier, status)
@@ -18,6 +18,6 @@ class ErrorPayload
   end
 
   def translated_payload(lookup)
-    I18n.translate("errors.#{@identifier}.#{lookup}")
+    I18n.translate("responses.#{@identifier}.#{lookup}")
   end
 end
