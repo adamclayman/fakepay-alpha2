@@ -8,6 +8,7 @@ The API works, if you use parameters that match my Postman environment.
 
 POST to root_path/api/alpha2/subscriptions
 ```
+Exemplary Request
 {
 	"customer_id": "1", 
 	"plan_id": "1",
@@ -24,6 +25,7 @@ POST to root_path/api/alpha2/subscriptions
 
 #### Successful request (matches exemplary parameters above)
 ```
+Exemplary Response
 {
     "status": 200,
     "error": "subscribe_successful",
@@ -35,6 +37,7 @@ POST to root_path/api/alpha2/subscriptions
 
 #### Invalid Card ("card_number": "4242424242424241")
 ```
+Response: Invalid card
 {
     "status": 400,
     "error": "invalid_card_number",
@@ -45,6 +48,7 @@ POST to root_path/api/alpha2/subscriptions
 ```
 #### Insufficient Funds ("card_number": "4242424242420089")
 ```
+Response: Insufficient funds
 {
     "status": 400,
     "error": "insufficient_funds",
@@ -55,6 +59,7 @@ POST to root_path/api/alpha2/subscriptions
 ```
 #### CVV Failure ("cvv": "124")
 ```
+Response: CVV failure
 {
     "status": 400,
     "error": "cvv_failure",
@@ -65,6 +70,7 @@ POST to root_path/api/alpha2/subscriptions
 ```
 #### Expired Card ("expiration_month": "01", "expiration_year": "2018")
 ```
+Response: Expired card
 {
     "status": 400,
     "error": "expired_card",
@@ -75,6 +81,7 @@ POST to root_path/api/alpha2/subscriptions
 ```
 #### Invalid ZIP Code ("zip_code": "334")
 ```
+Response: Invalid ZIP code
 {
     "status": 400,
     "error": "invalid_zip_code",
@@ -85,6 +92,7 @@ POST to root_path/api/alpha2/subscriptions
 ```
 #### Invalid Purchase Amount ("plan_id": "4" [=> price: "So invalid"])
 ```
+Response: Invalid purchase amount
 {
     "status": 400,
     "error": "invalid_purchase_amount",
