@@ -2,7 +2,7 @@
 
 A Chargify Code Challenge response. Write to ask me for my FAKEPAY_SECRET. 
 
-The API works, if you use parameters that match my Postman environment.
+The API works, if you use parameters that match my Postman environment. 
 
 ### Exemplary Valid Subscription Request Sample
 
@@ -101,3 +101,9 @@ Response: Invalid purchase amount
     "detail": "The purchase amount is invalid"
 }
 ```
+
+## Error-Driven Development Paradigm
+
+This was written by grace of [Error-Driven Development][EDD] (EDD™), with manual rather than automated testing, and plenty of elbow grease. More tests will be added to RSpec next week.
+
+[EDD]: "Error-driven Development" https://halogenandtoast.com/error-driven-development/
