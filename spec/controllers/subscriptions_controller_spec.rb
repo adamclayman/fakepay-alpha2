@@ -28,12 +28,16 @@ RSpec.describe SubscriptionsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Subscription. As you add validations to Subscription, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
-
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+  let(:valid_attributes)  { FactoryBot.attributes_for(:subscription)}
+  let(:post_attributes){
+    {:customer_id => "1", 
+    :plan_id => "1",
+    :card_number => "4242424242424242",
+    :expiration_month => "01",
+    :expiration_year => "2021",
+    :cvv => "123",
+    :zip_code => "33433",
+    :shipping_address => "7930 Palacio del Mar Drive, Boca Raton, FL 33433"}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -61,13 +65,13 @@ RSpec.describe SubscriptionsController, type: :controller do
     context "with valid params" do
       it "creates a new Subscription" do
         expect {
-          post :create, params: {subscription: valid_attributes}, session: valid_session
+          post :create, params: {subscription: post_attributes}, session: valid_session
         }.to change(Subscription, :count).by(1)
       end
 
       it "renders a JSON response with the new subscription" do
 
-        post :create, params: {subscription: valid_attributes}, session: valid_session
+        post :create, params: {subscription: post_attributes}, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
         expect(response.location).to eq(subscription_url(Subscription.last))

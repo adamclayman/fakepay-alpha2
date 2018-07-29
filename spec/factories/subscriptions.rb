@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :subscription do
-    customer Customer.find(2)
-    plan Plan.find(2)
+    customer
+    plan
     plan_name "Silver Box"
     plan_price "4900"
     plan_period "Monthly"

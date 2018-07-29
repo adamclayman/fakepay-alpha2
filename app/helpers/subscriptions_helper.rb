@@ -27,7 +27,6 @@ module SubscriptionsHelper
         "expiration_month":expiration_month,
         "expiration_year":expiration_year,
         "zip_code":zip_code}.to_json
-    puts "Payload: #{payload}"
     rest_response = RestClient::Request.new(
         method: :post,
         url: url, 
