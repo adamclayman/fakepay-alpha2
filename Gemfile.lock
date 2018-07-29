@@ -73,6 +73,9 @@ GEM
       domain_name (~> 0.5)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.7.0)
+      activesupport (>= 4.2.0)
+      multi_json (>= 1.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -93,6 +96,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     msgpack (1.2.4)
+    multi_json (1.13.1)
     netrc (0.11.0)
     nio4r (2.3.1)
     nokogiri (1.8.4)
@@ -182,21 +186,22 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  byebug
-  database_cleaner
-  dotenv-rails
-  factory_bot_rails
-  faker
+  byebug (~> 10.0.2)
+  database_cleaner (~> 1.7.0)
+  dotenv-rails (~> 2.5.0)
+  factory_bot_rails (~> 4.10.0)
+  faker (~> 1.9.1)
+  jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.0)
-  rest-client
-  rspec-rails
-  spring
+  rest-client (~> 2.0.2)
+  rspec-rails (~> 3.7.2)
+  spring (~> 2.0.2)
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   tzinfo-data
-  whenever
+  whenever (~> 0.10.0)
 
 RUBY VERSION
    ruby 2.5.1p57
