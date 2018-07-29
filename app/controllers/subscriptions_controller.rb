@@ -1,7 +1,5 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :update, :destroy]
-  wrap_parameters :subscription, format: [:json, :xml, :url_encoded_form, :multipart_form]
-
   # GET /subscriptions
   def index
     @subscriptions = Subscription.all
