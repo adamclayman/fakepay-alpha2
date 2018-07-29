@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :customer do
-    name "MyString"
-    handle "MyString"
-    profile_address "MyString"
+    name { Faker::Name.name }
+    handle { Faker::Internet.username(8) }
+    profile_address { Faker::Address.full_address }
+    created_at { 5.days.ago }
+    updated_at { 5.hours.ago }
   end
 end

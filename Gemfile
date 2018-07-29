@@ -10,7 +10,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -24,26 +24,26 @@ gem 'puma', '~> 3.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'rspec-rails'
-gem 'dotenv-rails', groups: [:development, :test]
-gem 'rest-client'
-gem 'whenever', require: false
+gem 'rspec-rails', '~> 3.7.2'
+gem 'dotenv-rails', groups: [:development, :test], '~> 2.5.0'
+gem 'rest-client', '~> 2.0.2'
+gem 'whenever', require: false, '~> 0.10.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'database_cleaner'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw], '~> 10.0.2'
+  gem 'factory_bot_rails', '~> 4.10.0'
+  gem 'faker', '~> 1.9.1'
+  gem 'database_cleaner', '~> 1.7.0'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
