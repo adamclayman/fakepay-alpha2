@@ -5,11 +5,11 @@ RSpec.describe Subscription, type: :model do
 	let(:plan) {Plan.create!(name: "Bronze Box", price: "1999", period: "Monthly")}
 
   it 'should not validate subscriptions without a customer reference' do
-    @subscription = FactoryBot.build(:valid_subscription, customer: "")
+    @subscription = FactoryBot.build(:valid_subscription, customer_id: "")
     expect(@subscription).to_not be_valid
   end
   it 'should not validate subscriptions without a plan reference' do
-    @subscription = FactoryBot.build(:valid_subscription, plan: "")
+    @subscription = FactoryBot.build(:valid_subscription, plan_id: "")
     expect(@subscription).to_not be_valid
   end
   it 'should not validate subscriptions without a plan name' do
