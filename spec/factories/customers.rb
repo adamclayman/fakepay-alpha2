@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :customer do
+  factory :valid_customer do
     name { Faker::Name.name }
     email { Faker::Internet.email}
     handle { Faker::Internet.username(8) }
