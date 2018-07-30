@@ -1,7 +1,8 @@
 class RenderPayload
-  attr_reader :identifier, :status
+  attr_reader :type, :identifier, :status
 
-  def initialize(identifier, status)
+  def initialize(type, identifier, status)
+    @type = type
     @identifier = identifier
     @status = status
   end
@@ -9,6 +10,7 @@ class RenderPayload
   def as_json(*)
     {
       status: Rack::Utils.status_code(status),
+      type: type,
       error: identifier,
       error_code: translated_payload('error_code'),
       title: translated_payload('title'),
@@ -17,12 +19,7 @@ class RenderPayload
     }
   end
 
-  def translated_payload_charge(lookup)
-    I18n.translate("responses.charge.#{@identifier}.#{lookup}")
-  end
-
-
-  def translated_payload_subscription(lookup)
-    I18n.translate("responses.subscription.#{@identifier}.#{lookup}")
+  def translated_payload(lookup)
+    I18n.translate("#{@type}.responses.#{@identifier}.#{lookup}")
   end
 end

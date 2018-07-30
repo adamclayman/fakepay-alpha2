@@ -2,9 +2,9 @@ en:
   subscription:
     responses:
         subscribe_successful:
-        title: "Subscribe successful."
-        detail: "Subscription was a success."
-        error_code: nil
+          title: "Subscribe successful."
+          detail: "Subscription was a success."
+          error_code: nil
   charge:
     responses:
       invalid_card_number:
