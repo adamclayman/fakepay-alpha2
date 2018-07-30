@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should not validate customers without a name' do
+    @customer = FactoryBot.build(:valid_customer, name: "")
+    expect(@customer).to_not be_valid
+  end
 end
