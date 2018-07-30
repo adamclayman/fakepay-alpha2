@@ -1,8 +1,6 @@
 # README
 
-A Chargify Code Challenge response. Write to ask me for my FAKEPAY_SECRET. 
-
-The API works, if you use parameters that match my Postman environment. 
+A Chargify Code Challenge response. To get this running, you need to add a .env file with a FAKEPAY_SECRET. Write if you need to ask me for mine. The API works for all exemplary and all six types of malformed requests, as long as you have a FAKEPAY_SECRET and work off the sample request below. At the moment, unlike the Fakepay.io endpoint, no authorization token is required to submit requests to _this_ API endpoint. But never fear ... JSON Web Tokens are coming soon to an API near you, along with a bundle of other features that this developer is anxious to learn and implement.
 
 ### Exemplary Valid Subscription Request Sample
 
