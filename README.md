@@ -6,7 +6,7 @@ The API works, if you use parameters that match my Postman environment.
 
 ### Exemplary Valid Subscription Request Sample
 
-POST to root_path/api/alpha2/subscriptions
+__POST to root_path/api/alpha2/subscriptions__
 ```
 Exemplary Request
 {	
@@ -108,6 +108,7 @@ Response: Invalid purchase amount
     "detail": "The purchase amount is invalid"
 }
 ```
+<<<<<<< HEAD
 
 ## Error-Driven Development Paradigm
 
@@ -116,3 +117,5 @@ This was written by grace of [Error-Driven Development][EDD] (EDD™), with manu
 Mea maxima culpa.
 
 [EDD]: "Error-driven Development" https://halogenandtoast.com/error-driven-development/
+=======
+>>>>>>> 458e72425cb2a15f1424d53e1952eb65e4757ef1
