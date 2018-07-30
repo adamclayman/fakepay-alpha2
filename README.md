@@ -108,14 +108,9 @@ Response: Invalid purchase amount
     "detail": "The purchase amount is invalid"
 }
 ```
-<<<<<<< HEAD
 
 ## Error-Driven Development Paradigm
 
-This was written by grace of [Error-Driven Development][EDD] (EDD™), with manual rather than automated testing, and plenty of elbow grease. More tests will be added to RSpec next week.
+This was written by grace of [Error-Driven Development](https://halogenandtoast.com/error-driven-development/) (EDD™), with manual rather than automated testing, and plenty of elbow grease. More tests will be added to RSpec next week.
 
 Mea maxima culpa.
-
-[EDD]: "Error-driven Development" https://halogenandtoast.com/error-driven-development/
-=======
->>>>>>> 458e72425cb2a15f1424d53e1952eb65e4757ef1
