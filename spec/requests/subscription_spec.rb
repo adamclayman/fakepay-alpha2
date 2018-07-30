@@ -1,7 +1,7 @@
 require "rails_helper"
 include Rails.application.routes.url_helpers
 
-RSpec.describe "Subscription request", :type => :request do
+RSpec.describe "Request specs for subscriptions", :type => :request do
   url = subscriptions_url
   headers = {
     "Content-Type" => "application/json",
@@ -103,4 +103,35 @@ RSpec.describe "Subscription request", :type => :request do
       end
     end
   end
+end
+
+RSpec.describe "Request specs for subscriptions", :type => :request do
+  url = subscriptions_url
+  headers = {
+    "Content-Type" => "application/json",
+    "ACCEPT" => "application/json",
+    "Authorization" => "Bearer 835c332034e2cbddc3080162622582"
+  }
+  before(:all) do
+    @subscription = FactoryBot.build(:valid_subscription)
+  end
+
+=begin
+  describe "GET request" do
+    it "gets all subscriptions for all users when no customer params are present" do
+      response = RestClient.get(url, headers)
+      expect(response.headers[:content_type]).to eq("application/json; charset=utf-8")
+      expect(response.code).to eq(200)
+      expect(JSON.parse(response.body)).to eq({"status"=>200, "type"=>"subscription", "error"=>"subscribe_successful", "error_code"=>"nil", "title"=>"Subscribe successful", "detail"=>"Subscription was a success"})
+    end
+
+    it "gets subscriptions for single user when customer param is present" do
+      response = RestClient.get(url, {}, headers)
+      expect(response.headers[:content_type]).to eq("application/json; charset=utf-8")
+      expect(response.code).to eq(200)
+      expect(JSON.parse(response.body)).to eq({"status"=>200, "type"=>"subscription", "error"=>"subscribe_successful", "error_code"=>"nil", "title"=>"Subscribe successful", "detail"=>"Subscription was a success"})
+    end
+
+  end
+=end
 end
