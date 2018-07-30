@@ -91,6 +91,7 @@ Response: Invalid ZIP code
 }
 ```
 #### Invalid Purchase Amount ("plan_id": "4" [=> price: "So invalid"])
+##### All Plan Prices / Amounts Must Be "Hectared" Before Submission (i.e. "9900" = $99.00)
 ```
 Response: Invalid purchase amount
 {
@@ -105,5 +106,7 @@ Response: Invalid purchase amount
 ## Error-Driven Development Paradigm
 
 This was written by grace of [Error-Driven Development][EDD] (EDD™), with manual rather than automated testing, and plenty of elbow grease. More tests will be added to RSpec next week.
+
+Mea maxima culpa.
 
 [EDD]: "Error-driven Development" https://halogenandtoast.com/error-driven-development/
