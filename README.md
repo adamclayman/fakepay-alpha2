@@ -9,15 +9,21 @@ The API works, if you use parameters that match my Postman environment.
 POST to root_path/api/alpha2/subscriptions
 ```
 Exemplary Request
-{
-	"customer_id": "1", 
-	"plan_id": "1",
-	"card_number": "4242424242424242",
-	"expiration_month": "01",
-	"expiration_year": "2021",
-	"cvv": "123",
-	"zip_code": "33433",
-	"shipping_address": "7930 Palacio del Mar Drive, Boca Raton, FL 33433"
+{	
+	"subscription": {
+		"customer_id": 1,
+		"plan_id": 1
+	},
+	"shipping": {
+		"shipping_address": "7930 Palacio del Mar Drive, Boca Raton, FL 33433"
+	},
+	"billing": {
+		"card_number": "4242424242424242",
+		"expiration_month": "01",
+		"expiration_year": "2021",
+		"cvv": "123",
+		"zip_code": "33433"
+	}
 }
 ```
 
@@ -91,7 +97,7 @@ Response: Invalid ZIP code
 }
 ```
 #### Invalid Purchase Amount ("plan_id": "4" [=> price: "So invalid"])
-##### All Plan Prices / Amounts Must Be "Hectared" Before Submission (i.e. "9900" = $99.00)
+##### Warning: All Plan Prices / Amounts Must Be "Hectared" Before Submission (i.e. "9900" = $99.00)
 ```
 Response: Invalid purchase amount
 {

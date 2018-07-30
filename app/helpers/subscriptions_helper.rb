@@ -1,5 +1,9 @@
 module SubscriptionsHelper
   def first_charge
+    puts "First Charge Params: #{params}"
+    puts "Billing Params: #{params['billing']}"
+    puts "Shipping Params: #{params['shipping']}"
+
     authorization = "Token token=" + ENV['FAKEPAY_SECRET']
     url = "https://www.fakepay.io/purchase"
     plan = Plan.find(params['subscription']['plan_id'])
@@ -7,18 +11,14 @@ module SubscriptionsHelper
     plan_period = plan.period
     plan_price = plan.price
 
-    params['subscription'].merge!('plan_name' => plan_name)
-    params['subscription'].merge!('plan_price' => plan_price)
-    params['subscription'].merge!('plan_period' => plan_period)
-    params['subscription'].merge!('subscribe_date' => Date.today)
-    params['subscription'].merge!('expiration_date' => 1.year.from_now)
-
     amount = plan.price
-    card_number = params['card_number']
-    expiration_month = params['expiration_month']
-    expiration_year = params['expiration_year']
-    cvv = params['cvv']
-    zip_code = params['zip_code']
+    card_number = params['billing']['card_number']
+    expiration_month = params['billing']['expiration_month']
+    expiration_year = params['billing']['expiration_year']
+    cvv = params['billing']['cvv']
+    zip_code = params['billing']['zip_code']
+
+    shipping_address = params['shipping']['shipping_address']
 
     # Run FakePay API POST Request
     payload = {"amount":amount,
@@ -35,12 +35,21 @@ module SubscriptionsHelper
             JSON.parse(response.to_s)
         end
 
-    # Clean-out credit card from params immediately
+    # Clean-out credit card from params / memory immediately
     params['subscription'].delete('card_number')
     params['subscription'].delete('expiration_month')
     params['subscription'].delete('expiration_year')
     params['subscription'].delete('cvv')
     params['subscription'].delete('zip_code')
+
+    # Stage subscription_params for later save
+    params['subscription'].merge!('plan_name' => plan_name)
+    params['subscription'].merge!('plan_price' => plan_price)
+    params['subscription'].merge!('plan_period' => plan_period)
+    params['subscription'].merge!('subscribe_date' => Date.today)
+    params['subscription'].merge!('expiration_date' => 1.year.from_now)
+    params['subscription'].merge!('shipping_address' => shipping_address)
+
 
     case rest_response['error_code']
         when nil
