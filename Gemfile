@@ -31,6 +31,7 @@ gem 'rest-client', '~> 2.0.2'
 gem 'whenever', '~> 0.10.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+gem 'jwt', '~> 2.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.10.0'
   gem 'faker', '~> 1.9.1'
   gem 'database_cleaner', '~> 1.7.0'
+
 end
 
 group :development do
