@@ -6,7 +6,7 @@ The API works, if you use parameters that match my Postman environment.
 
 ### Exemplary Valid Subscription Request Sample
 
-POST to root_path/api/alpha2/subscriptions
+__POST to root_path/api/alpha2/subscriptions__
 ```
 Exemplary Request
 {
