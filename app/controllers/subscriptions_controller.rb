@@ -48,6 +48,6 @@ class SubscriptionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def subscription_params
-      params.require(:subscription).permit(:customer_id, :plan_id, :plan_name, :plan_price, :plan_period, :subscribe_date, :billing, :card_number, :expiration_month, :expiration_year, :cvv, :zip_code, :shipping_address, :payment_token, :expiration_date)
+      params.require(:subscription).permit(:customer_id, :plan_id, :plan_name, :plan_price, :plan_period, :subscribe_date, :expiration_date, :shipping_address, :payment_token)
     end
 end
