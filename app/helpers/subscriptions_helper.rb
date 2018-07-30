@@ -1,8 +1,5 @@
 module SubscriptionsHelper
   def first_charge
-    puts "First Charge Params: #{params}"
-    puts "Billing Params: #{params['billing']}"
-    puts "Shipping Params: #{params['shipping']}"
 
     authorization = "Token token=" + ENV['FAKEPAY_SECRET']
     url = "https://www.fakepay.io/purchase"
