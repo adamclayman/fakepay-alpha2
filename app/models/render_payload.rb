@@ -17,7 +17,12 @@ class RenderPayload
     }
   end
 
-  def translated_payload(lookup)
-    I18n.translate("responses.#{@identifier}.#{lookup}")
+  def translated_payload_charge(lookup)
+    I18n.translate("responses.charge.#{@identifier}.#{lookup}")
+  end
+
+
+  def translated_payload_subscription(lookup)
+    I18n.translate("responses.subscription.#{@identifier}.#{lookup}")
   end
 end

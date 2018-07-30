@@ -53,19 +53,19 @@ module SubscriptionsHelper
             payment_token = rest_response['token']
             params['subscription'].merge!('payment_token' => payment_token)
         when 1000001
-            render_payload :invalid_card_number
+            render_payload_charge :invalid_card_number
         when 1000002
-            render_payload :insufficient_funds
+            render_payload_charge :insufficient_funds
         when 1000003
-            render_payload :cvv_failure
+            render_payload_charge :cvv_failure
         when 1000004
-            render_payload :expired_card
+            render_payload_charge :expired_card
         when 1000005
-            render_payload :invalid_zip_code
+            render_payload_charge :invalid_zip_code
         when 1000006
-            render_payload :invalid_purchase_amount
+            render_payload_charge :invalid_purchase_amount
         else
-            render_payload :error_code_unrecognized
+            render_payload_charge :error_code_unrecognized
     end
     return rest_response
   end

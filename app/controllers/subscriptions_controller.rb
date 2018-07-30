@@ -20,7 +20,7 @@ class SubscriptionsController < ApplicationController
     end
 
     if @subscription && @subscription.save
-      render_payload :subscribe_successful, :ok
+      render_payload_subscription :subscribe_successful, :ok
     elsif @subscription
       render json: @subscription.errors, status: :unprocessable_entity
     end
