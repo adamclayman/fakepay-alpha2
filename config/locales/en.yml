@@ -4,7 +4,7 @@ en:
         subscribe_successful:
           title: "Subscribe successful"
           detail: "Subscription was a success"
-          error_code: nil
+          error_code: "null"
   charge:
     responses:
       invalid_card_number:
