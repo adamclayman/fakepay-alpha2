@@ -32,10 +32,25 @@ Exemplary Request
 Exemplary Response
 {
     "status": 200,
+    "type": "subscription",
     "error": "subscribe_successful",
     "error_code": "nil",
-    "title": "Subscribe successful.",
-    "detail": "Subscription was a success."
+    "title": "Subscribe successful",
+    "detail": "Subscription was a success",
+    "confirmation_object": {
+        "id": 75,
+        "customer_id": 1,
+        "plan_id": 1,
+        "plan_name": "Bronze Box",
+        "plan_price": "1999",
+        "plan_period": "Monthly",
+        "subscribe_date": "2018-07-30",
+        "expiration_date": "2019-07-31",
+        "shipping_address": "7930 Palacio del Mar Drive, Boca Raton, FL 33433",
+        "payment_token": "34869cde6bc4f9c66b8f88bfa1899a",
+        "created_at": "2018-07-31T01:40:44.852Z",
+        "updated_at": "2018-07-31T01:40:44.852Z"
+    }
 }
 ```
 
@@ -44,10 +59,12 @@ Exemplary Response
 Response: Invalid card
 {
     "status": 400,
+    "type": "charge",
     "error": "invalid_card_number",
     "error_code": 1000001,
     "title": "Invalid card number",
-    "detail": "The card number is invalid"
+    "detail": "The card number is invalid",
+    "confirmation_object": null
 }
 ```
 #### Insufficient Funds ("card_number": "4242424242420089")
@@ -55,10 +72,12 @@ Response: Invalid card
 Response: Insufficient funds
 {
     "status": 400,
+    "type": "charge",
     "error": "insufficient_funds",
     "error_code": 1000002,
     "title": "Insufficient funds",
-    "detail": "The account has insufficient funds"
+    "detail": "The account has insufficient funds",
+    "confirmation_object": null
 }
 ```
 #### CVV Failure ("cvv": "124")
@@ -66,10 +85,12 @@ Response: Insufficient funds
 Response: CVV failure
 {
     "status": 400,
+    "type": "charge",
     "error": "cvv_failure",
     "error_code": 1000003,
     "title": "CVV failure",
-    "detail": "CVV failure"
+    "detail": "CVV failure",
+    "confirmation_object": null
 }
 ```
 #### Expired Card ("expiration_month": "01", "expiration_year": "2018")
@@ -77,10 +98,12 @@ Response: CVV failure
 Response: Expired card
 {
     "status": 400,
+    "type": "charge",
     "error": "expired_card",
     "error_code": 1000004,
     "title": "Expired card",
-    "detail": "The card is expired"
+    "detail": "The card is expired",
+    "confirmation_object": null
 }
 ```
 #### Invalid ZIP Code ("zip_code": "334")
@@ -88,23 +111,24 @@ Response: Expired card
 Response: Invalid ZIP code
 {
     "status": 400,
+    "type": "charge",
     "error": "invalid_zip_code",
     "error_code": 1000005,
     "title": "Invalid ZIP code",
-    "detail": "The ZIP code is invalid"
+    "detail": "The ZIP code is invalid",
+    "confirmation_object": null
 }
 ```
-#### Invalid Purchase Amount ("plan_id": "4" [=> price: "So invalid"])
+#### Invalid Purchase Amount (Plan Model Validation Prevents This Error)
 ##### Warning: All Plan Prices / Amounts Must Be "Hectared" Before Submission (i.e. "9900" = $99.00)
+The nearest thing to an invalid purchase amount you can achieve is a plan not found response.
 ```
-Response: Invalid purchase amount
+Response: 404 Plan Not Found
 {
-    "status": 400,
-    "error": "invalid_purchase_amount",
-    "error_code": 1000006,
-    "title": "Invalid purchase amount",
-    "detail": "The purchase amount is invalid"
-}
+    "status": 404,
+    "error": "Not Found",
+    "exception": "#<ActiveRecord::RecordNotFound: Couldn't find Plan with 'id'=5>",
+    ....
 ```
 
 ## Error-Driven Development Paradigm

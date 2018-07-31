@@ -7,7 +7,7 @@ FactoryBot.define do
 
   factory :invalid_plan, :class => Plan do
     name { Faker::Military.air_force_rank }
-    price { Faker::Number.number(4)}
+    price { Faker::Number.decimal(2)}
     period { Faker::Number.number(10) }
   end
 end
