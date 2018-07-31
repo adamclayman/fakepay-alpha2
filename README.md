@@ -34,11 +34,11 @@ Exemplary Response
     "status": 200,
     "type": "subscription",
     "error": "subscribe_successful",
-    "error_code": "nil",
+    "error_code": "null",
     "title": "Subscribe successful",
     "detail": "Subscription was a success",
     "confirmation_object": {
-        "id": 75,
+        "id": 81,
         "customer_id": 1,
         "plan_id": 1,
         "plan_name": "Bronze Box",
@@ -47,9 +47,9 @@ Exemplary Response
         "subscribe_date": "2018-07-30",
         "expiration_date": "2019-07-31",
         "shipping_address": "7930 Palacio del Mar Drive, Boca Raton, FL 33433",
-        "payment_token": "34869cde6bc4f9c66b8f88bfa1899a",
-        "created_at": "2018-07-31T01:40:44.852Z",
-        "updated_at": "2018-07-31T01:40:44.852Z"
+        "payment_token": "6896a3f889e8781632cdbe45cf74f1",
+        "created_at": "2018-07-31T01:55:20.546Z",
+        "updated_at": "2018-07-31T01:55:20.546Z"
     }
 }
 ```
