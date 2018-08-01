@@ -4,3 +4,12 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+require "#{Rails.root}/lib/task_helpers/recharge_helper"
+include RechargeHelper
+
+namespace :helpers do
+  task :recharge => :environment do
+    recharge
+  end
+end

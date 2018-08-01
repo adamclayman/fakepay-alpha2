@@ -18,3 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+every 1.day, at: '6:00 am' do
+  rake "helpers:recharge"
+end
