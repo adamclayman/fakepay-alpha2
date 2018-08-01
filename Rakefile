@@ -10,6 +10,6 @@ include RechargeHelper
 
 namespace :helpers do
   task :recharge => :environment do
-    recharge
+    puts monthly_recharge
   end
 end

@@ -1,18 +1,4 @@
 module SubscriptionsHelper
-    def recharge(subscription)
-        amount = subscription['plan_price']
-        payment_token = subcription['payment_token']
-        payload = {"amount":amount, "payment_token":payment_token}.to_json
-        rest_response = RestClient::Request.new(
-            method: :post,
-            url: url, 
-            payload: payload, 
-            headers: {content_type: :json, accept: :json, Authorization: authorization}).execute do |response, request, result|
-                JSON.parse(response.to_s)
-            end
-        p rest_response
-    end
-
     def first_charge
         authorization = "Token token=" + ENV['FAKEPAY_SECRET']
         url = "https://www.fakepay.io/purchase"

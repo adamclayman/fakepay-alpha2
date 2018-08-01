@@ -1,5 +1,5 @@
 module RechargeHelper
-  def recharge
+  def monthly_recharge
     today = Time.now.strftime("%Y-%m-%d")
     past_dates = []
     (1..12).to_a.each do |number|
@@ -7,7 +7,7 @@ module RechargeHelper
     end
     monthversaries = []
     past_dates.each do |past_date|
-      matches = Subscription.all.find_by(subscribe_date: past_date)
+      matches = Subscription.all.find_by(subscribe_date: past_date, plan_period: "Monthly")
       monthversaries <<  matches unless matches.nil?
     end
     responses = []
